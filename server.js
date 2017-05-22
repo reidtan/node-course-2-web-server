@@ -26,6 +26,7 @@ app.use(express.static(`${__dirname}/public`));
 
 hbs.registerHelper('getCurrentYear', () => new Date().getFullYear());
 hbs.registerHelper('screamIt', (message) => message.toUpperCase());
+hbs.registerHelper('getProjects', () => 'This is what my projects are...');
 
 app.get('/', (req, res) => {
   res.render('home.hbs', {
@@ -37,6 +38,12 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
   res.render('about.hbs', {
     pageTitle: 'About Page',
+  });
+});
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Projects Page',
   });
 });
 
